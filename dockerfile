@@ -37,11 +37,20 @@ RUN git clone -b $(curl -L https://grpc.io/release) https://github.com/grpc/grpc
 #RUN apt-get install clang-4.0 lldb-4.0
 
 #Need to test this following - if the above doesnt work
-RUN wget -O - http://apt.llvm.org/llvm-snapshot.gpg.key | sudo apt-key add -
-RUN apt-get update
-RUN sudo apt-add-repository "deb http://apt.llvm.org/xenial/ llvm-toolchain-xenial-3.9 main"
-RUN sudo apt-get install clang-3.9 clang++-3.9
-
+#RUN wget -O - http://apt.llvm.org/llvm-snapshot.gpg.key | sudo apt-key add -
+#RUN apt-get update
+#RUN sudo apt-add-repository "deb http://apt.llvm.org/xenial/ llvm-toolchain-xenial-3.9 main"
+#RUN sudo apt-get install clang-3.9 clang++-3.9
+RUN apt-get update \
+    && echo "deb http://apt.llvm.org/trusty/ llvm-toolchain-trusty-3.9 main" >> /etc/apt/sources.list.d/llvm.list \
+    && echo "deb-src http://apt.llvm.org/trusty/ llvm-toolchain-trusty-3.9 main" >> /etc/apt/sources.list.d/llvm.list \
+    && wget -O - http://apt.llvm.org/llvm-snapshot.gpg.key|apt-key add - \
+    && apt-get update \
+    && apt-get install -y \
+        llvm-3.9 \
+        clang-3.9 \
+        lldb-3.9 \
+    && rm -rf /var/lib/apt/lists/*
 
 #RUN apt-get install clang-3.9
 
