@@ -14,9 +14,10 @@ RUN apt-get install software-properties-common -y
 
 #clang
 RUN wget -O - http://apt.llvm.org/llvm-snapshot.gpg.key | sudo apt-key add -
-RUN apt-add-repository "deb http://apt.llvm.org/xenial/ llvm-toolchain-xenial-3.9 main"
+RUN apt-add-repository "deb http://apt.llvm.org/xenial/ llvm-toolchain-xenial-5.0 main"
 RUN apt-get update
-RUN apt-get install clang-3.9 lldb-3.9
+#RUN apt-get install libclang1-3.9 libjsoncpp1 libllvm3.9 libstdc++6 libstdc++-5-dev
+RUN apt-get install clang-5.0 lldb-5.0
 
 
 
