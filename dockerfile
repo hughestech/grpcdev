@@ -45,6 +45,7 @@ RUN git clone -b $(curl -L https://grpc.io/release) https://github.com/grpc/grpc
 #RUN apt-get install -y clang
 RUN apt-get install -y clang-3.6
 RUN lsb_release -a
+RUN clang --version
 
 #RUN apt-get install clang-3.9
 
