@@ -1,7 +1,7 @@
 FROM hughestech/winedev:32bit-1.0.0-alpha1
 
 RUN apt-get update
-RUN apt-get install git curl apt-get install build-essential autoconf libtool install libgflags-dev libgtest-dev install clang libc++-dev -y
+RUN apt-get install git curl apt-get build-essential autoconf libtool install libgflags-dev libgtest-dev install clang libc++-dev -y
 
 RUN gcc --version
 
