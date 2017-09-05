@@ -11,6 +11,7 @@ RUN apt-get install software-properties-common -y
 #RUN clang-3.8 -v
 
 #RUN git clone https://github.com/llvm-mirror/clang
+RUN clang --version
 
 
 
