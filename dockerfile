@@ -16,7 +16,6 @@ RUN apt-get install software-properties-common -y
 RUN wget -O - http://apt.llvm.org/llvm-snapshot.gpg.key | sudo apt-key add -
 RUN apt-add-repository "deb http://apt.llvm.org/xenial/ llvm-toolchain-xenial-5.0 main"
 RUN add-apt-repository ppa:ubuntu-toolchain-r/test -y
-RUN add-apt-repository ppa:ubuntu-toolchain-r/test -y
 
 RUN apt-get update
 RUN apt-get install clang-3.9
