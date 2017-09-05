@@ -14,7 +14,7 @@ RUN apt-get install git curl build-essential autoconf libtool  libgflags-dev lib
 
 #RUN clang --version
 
-RUN lsb_release -a
+# RUN lsb_release -a
 
 #RUN apt-get install libclang1-3.8 libstdc++-4.8-dev libgcc-4.8-dev  -y
 
