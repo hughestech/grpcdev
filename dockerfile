@@ -41,18 +41,8 @@ RUN git clone -b $(curl -L https://grpc.io/release) https://github.com/grpc/grpc
 #RUN apt-get update
 #RUN sudo apt-add-repository "deb http://apt.llvm.org/xenial/ llvm-toolchain-xenial-3.9 main"
 #RUN sudo apt-get install clang-3.9 clang++-3.9
-    
-RUN apt-get update \
-      && echo "deb http://apt.llvm.org/xenial/ llvm-toolchain-xenial-3.9 main" >> /etc/apt/sources.list.d/llvm.list \
-      && echo "deb-src http://apt.llvm.org/xenial/ llvm-toolchain-xenial-3.9 main" >> /etc/apt/sources.list.d/llvm.list \
-      && wget -O - http://apt.llvm.org/llvm-snapshot.gpg.key|apt-key add - \
-        && apt-get update \
-        && apt-get install -y \
-            llvm-3.9 \
-            clang-3.9 \
-            lldb-3.9 \
-            python-lldb-3.9 \
-        && rm -rf /var/lib/apt/lists/*
+RUN apt-get dist-upgrade    -y
+RUN lsb_release -a
 
 #RUN apt-get install clang-3.9
 
