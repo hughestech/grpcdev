@@ -48,8 +48,7 @@ RUN git clone -b $(curl -L https://grpc.io/release) https://github.com/grpc/grpc
 #RUN ln -s /usr/bin/clang-3.7 /usr/bin/clang
 #RUN ln -s /usr/bin/clang++-3.7 /usr/bin/clang++
 
-RUN mkdir build/ && cd build/
-RUN apt-get source llvm-toolchain-snapshot
+RUN mkdir build/ && cd build/ RUN apt-get source llvm-toolchain-snapshot
 RUN apt-get build-dep llvm-toolchain-snapshot
 RUN add-apt-repository ppa:ubuntu-toolchain-r/ppa
 RUN apt-get update
