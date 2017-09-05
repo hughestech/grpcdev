@@ -1,8 +1,8 @@
-FROM hughestech/winedev:32bit-1.0.0-alpha1
+FROM i386/ubuntu:17.04
 
 RUN apt-get update
-RUN apt-get install git curl build-essential autoconf libtool  libgflags-dev libgtest-dev  libc++-dev -y
-RUN apt-get install software-properties-common -y
+RUN apt-get install git curl build-essential autoconf libtool  libgflags-dev libgtest-dev clang libc++-dev -y
+#RUN apt-get install software-properties-common -y
 
 #Not working
 #RUN apt-add-repository "deb http://llvm.org/apt/trusty/ llvm-toolchain-trusty-3.8 main"
