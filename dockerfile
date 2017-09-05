@@ -12,16 +12,6 @@ RUN apt-get install software-properties-common -y
 
 #RUN git clone https://github.com/llvm-mirror/clang
 
-#clang
-RUN wget -O - http://apt.llvm.org/llvm-snapshot.gpg.key | sudo apt-key add -
-RUN apt-add-repository "deb http://apt.llvm.org/xenial/ llvm-toolchain-xenial-5.0 main"
-RUN add-apt-repository ppa:ubuntu-toolchain-r/test -y
-
-RUN apt-get update
-RUN apt-get install clang-3.9
-
-
-
 #RUN clang --version
 
 RUN lsb_release -a
@@ -34,6 +24,25 @@ RUN lsb_release -a
 RUN gcc --version
 
 RUN git clone -b $(curl -L https://grpc.io/release) https://github.com/grpc/grpc
+
+#clang
+#RUN wget -O - http://apt.llvm.org/llvm-snapshot.gpg.key | sudo apt-key add -
+#RUN apt-add-repository "deb http://apt.llvm.org/xenial/ llvm-toolchain-xenial-5.0 main"
+#RUN add-apt-repository ppa:ubuntu-toolchain-r/test -y
+
+RUN wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key|sudo apt-key add -
+RUN apt-get install clang-4.0 clang-4.0-doc libclang-common-4.0-dev libclang-4.0-dev libclang1-4.0 libclang1-4.0-dbg libllvm-4.0-ocaml-dev libllvm4.0 libllvm4.0-dbg lldb-4.0 llvm-4.0 llvm-4.0-dev llvm-4.0-doc llvm-4.0-examples llvm-4.0-runtime clang-format-4.0 python-clang-4.0 libfuzzer-4.0-dev -y
+
+#Need to test this following - if the above doesnt work
+#RUN wget -O - http://apt.llvm.org/llvm-snapshot.gpg.key | sudo apt-key add -
+#RUN sudo apt-add-repository "deb http://apt.llvm.org/xenial/ llvm-toolchain-xenial-3.9 main"
+#RUN sudo apt-get install clang-3.9 clang++-3.9
+
+RUN apt-get update
+RUN apt-get install clang-3.9
+
+
+
 WORKDIR grpc
 RUN git submodule update --init
 RUN make
