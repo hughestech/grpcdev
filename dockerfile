@@ -22,7 +22,7 @@ RUN apt-get install clang-3.9
 
 
 
-RUN clang --version
+#RUN clang --version
 
 RUN lsb_release -a
 
