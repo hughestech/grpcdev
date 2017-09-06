@@ -9,10 +9,13 @@ RUN git clone -b $(curl -L https://grpc.io/release) https://github.com/grpc/grpc
 RUN whereis libclang
 
 WORKDIR grpc
-RUN pwd
-RUN ls -lrt -d -1 $PWD/{*,.*} 
+
 RUN git submodule update --init
 RUN make
+
+RUN pwd
+RUN ls -lrt -d -1 $PWD/{*,.*} 
+
 RUN make install
 
 RUN mkdir wine/
