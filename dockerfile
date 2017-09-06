@@ -9,6 +9,7 @@ WORKDIR git
 RUN pwd
 RUN git clone -b $(curl -L https://grpc.io/release) https://github.com/grpc/grpc
 RUN pwd
+RUN ls
 RUN cd grpc
 
 
