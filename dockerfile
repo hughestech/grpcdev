@@ -10,7 +10,7 @@ RUN whereis libclang
 
 WORKDIR grpc
 RUN pwd
-
+RUN ls
 RUN git submodule update --init
 RUN make
 RUN make install
