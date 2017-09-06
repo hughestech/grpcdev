@@ -17,7 +17,7 @@ RUN mkdir wine/
 
 WORKDIR wine/
 
-RUN apt-get install wget -y
+RUN apt-get install wget flex bison -y
 RUN wget   http://dl.winehq.org/wine/source/2.0/wine-2.0.2.tar.xz
 RUN tar -xf wine-2.0.2.tar.xz
 
