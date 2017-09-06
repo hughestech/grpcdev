@@ -14,7 +14,7 @@ RUN git submodule update --init
 RUN make
 
 RUN pwd
-RUN ls -lrt -d -1 $PWD/{*,.*} 
+RUN ls -d $PWD/*
 
 RUN make install
 
