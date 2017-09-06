@@ -8,7 +8,7 @@ RUN apt-get install git curl build-essential autoconf libtool  libgflags-dev lib
 WORKDIR grpc
 RUN pwd
 RUN git clone -b $(curl -L https://grpc.io/release) https://github.com/grpc/grpc
-
+WORKDIR grpc
 
 
 
