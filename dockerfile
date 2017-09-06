@@ -7,20 +7,6 @@ RUN apt-get install git curl build-essential autoconf libtool  libgflags-dev lib
 
 
 
-RUN git clone -b $(curl -L https://grpc.io/release) https://github.com/grpc/grpc
-RUN cd grpc
-RUN cd grpc
-RUN pwd
-RUN ls
-
-
-
-
-
-RUN git submodule update --init
-RUN make
-
-RUN pwd
-RUN ls -d $PWD/*
-
-RUN make install
+ADD installgrpc.sh installgrpc.sh
+RUN chmod +x installgrpc.sh
+RUN ./installgrpc.sh 
