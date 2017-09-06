@@ -13,7 +13,7 @@ wget https://github.com/google/protobuf/releases/download/v3.4.0/protoc-3.4.0-li
 unzip protoc-3.4.0-linux-x86_64.zip -d protoc3
 
 # Move protoc to /usr/local/bin/
-sudo mv protoc3/bin/* /usr/local/bin/
+mv protoc3/bin/* /usr/local/bin/
 
 # Move protoc3/include to /usr/local/include/
-sudo mv protoc3/include/* /usr/local/include/
+mv protoc3/include/* /usr/local/include/
