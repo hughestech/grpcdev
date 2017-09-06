@@ -5,8 +5,7 @@ RUN apt-get install git curl build-essential autoconf libtool  libgflags-dev lib
 
 
 
-
-apt-get install wget -y
+RUN apt-get install wget -y
 ADD installgrpc.sh installgrpc.sh
 RUN chmod +x installgrpc.sh
 RUN apt-get install zip unzip -y
