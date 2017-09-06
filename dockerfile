@@ -12,7 +12,7 @@ RUN chmod +x installgrpc.sh
 RUN ./installgrpc.sh
 
 # Make sure you grab the latest version
-curl -OL https://github.com/google/protobuf/releases/download/v3.4.0/protoc-3.4.0-linux-x86_64.zip
+wget https://github.com/google/protobuf/releases/download/v3.4.0/protoc-3.4.0-linux-x86_64.zip
 
 # Unzip
 unzip protoc-3.4.0-linux-x86_64.zip -d protoc3
