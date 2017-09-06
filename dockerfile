@@ -5,11 +5,10 @@ RUN apt-get install git curl build-essential autoconf libtool  libgflags-dev lib
 
 
 
-WORKDIR git
-RUN pwd
+
+
 RUN git clone -b $(curl -L https://grpc.io/release) https://github.com/grpc/grpc
-RUN pwd
-RUN ls
+RUN cd grpc
 RUN cd grpc
 RUN pwd
 RUN ls
