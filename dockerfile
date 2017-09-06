@@ -1,4 +1,4 @@
-FROM hughestech/32bit-1.0.0-alpha2
+FROM  i386/ubuntu:17.04
 
 RUN apt-get update
 RUN apt-get install git curl build-essential autoconf libtool  libgflags-dev libgtest-dev clang libc++-dev -y
@@ -12,3 +12,19 @@ WORKDIR grpc
 RUN git submodule update --init
 RUN make
 RUN make install
+
+RUN mkdir wine/
+
+WORKDIR wine/
+
+RUN wget   http://dl.winehq.org/wine/source/2.0/wine-2.0.2.tar.xz
+RUN tar -xf wine-2.0.2.tar.xz
+
+WORKDIR wine-2.0.2/
+
+#RUN ./configure  --without-x  --without-freetype --enable-win64
+RUN ./configure  --without-x  --without-freetype
+RUN make
+RUN make install
+
+WORKDIR ../../wine/
