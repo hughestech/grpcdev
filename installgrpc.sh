@@ -10,7 +10,7 @@ cd third_party/protobuf
 ./configure
 make
 make check
-sudo make install
+make install
 
 #Install protoc-3
 # Make sure you grab the latest version - or not!
