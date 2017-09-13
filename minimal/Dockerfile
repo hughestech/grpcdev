@@ -2,6 +2,8 @@ FROM  i386/ubuntu:17.04
 
 
 ENV DEBIAN_FRONTEND noninteractive
+RUN echo "resolvconf resolvconf/linkify-resolvconf boolean false" | debconf-set-selections
+
 RUN apt-get update && apt-get install apt-transport-https ubuntu-minimal -y
 
 # based on https://askubuntu.com/a/243059/17643
