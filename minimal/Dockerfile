@@ -8,7 +8,7 @@ RUN apt-get update && apt-get install apt-transport-https ubuntu-minimal -y
 
 # based on https://askubuntu.com/a/243059/17643
 
-RUN apt-mark auto '~i!~ubuntu-minimal' 
+RUN apt-mark auto '~i!~nubuntu-minimal' 
 RUN apt-get install linux-image-generic  git curl build-essential autoconf libtool  libgflags-dev libgtest-dev clang libc++-dev -y
 
 
