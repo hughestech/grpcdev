@@ -1,0 +1,38 @@
+apiVersion: v1
+kind: BuildConfig
+metadata:
+  name: grpcdev-full2
+  annotations:
+    openshift.io/build-config.name: grpcdev-full2
+  labels:
+    build: grpcdev-full2
+    buildconfig: grpcdev-full2
+    openshift.io/build-config.name: grpcdev-full2
+    openshift.io/build.start-policy: Serial
+spec:
+  nodeSelector: null
+  output:
+    pushSecret:
+      name: dockhub-hughestech
+    to:
+      kind: DockerImage
+      name: hughestech/grpc-i386-full
+  postCommit: {}
+  resources: {}
+
+  serviceAccount: builder
+  source:
+    contextDir: full
+    git:
+      ref: master
+      uri: 'https://github.com/hughestech/grpcdev'
+    type: Git
+  strategy:
+    dockerStrategy:
+      from:
+        kind: DockerImage
+        name: >-
+          i386/ubuntu@sha256:22021496a6dd003b7fdc264985a578fb771edafa4cc9f790dd5e4967823567b2
+    type: Docker
+  triggeredBy:
+    - message: Manually triggered
