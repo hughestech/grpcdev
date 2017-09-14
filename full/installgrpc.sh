@@ -15,7 +15,7 @@ make install
 #Install protoc-3
 # Make sure you grab the latest version - or not!
 protocVersion=3.0.0
-#wget https://github.com/google/protobuf/releases/download/v$protocVersion/protoc-$protocVersion-linux-x86_64.zip
+wget https://github.com/google/protobuf/releases/download/v$protocVersion/protoc-$protocVersion-linux-x86_64.zip
 
 # Unzip
 unzip protoc-$protocVersion-linux-x86_64.zip -d protoc3
