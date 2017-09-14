@@ -1,7 +1,7 @@
 FROM  i386/ubuntu:17.04
 
 
-
+ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update -y
 RUN apt-get install linux-image-generic  git curl build-essential autoconf libtool  libgflags-dev libgtest-dev clang libc++-dev -y
 
