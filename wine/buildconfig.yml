@@ -18,7 +18,7 @@ spec:
       kind: DockerImage
       name: hughestech/grpc-i386-fule:wine-2.0.2
   source:
-    contextDir: cmake
+    contextDir: wine
     git:
       ref: master
       uri: 'https://github.com/hughestech/grpcdev'
