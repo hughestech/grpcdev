@@ -40,9 +40,9 @@ ENV GRPC_RELEASE_TAG v1.6.0
 #RUN cd /var/local/git/grpc &&  git submodule update --init &&  make && make install && make clean
 
 ADD installgrpc.sh installgrpc.sh
-RUN chmod +x installgrpc.sh
+
 RUN apt-get install zip unzip -y
-RUN ./installgrpc.sh
+RUN chmod +x installgrpc.sh && ./installgrpc.sh
 
 #install protoc
 #RUN cd /var/local/git/grpc/third_party/protobuf && \   make && make install && make clean
