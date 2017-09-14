@@ -1,5 +1,8 @@
 FROM hughestech/grpc-i386-full:cmake
-RUN apt-get update && install wget -y
+
+
+RUN apt-get update 	&& apt-get install -y --no-install-recommends wget
+
 RUN wget http://dl.winehq.org/wine/source/2.0/wine-2.0.2.tar.xz && tar -xf wine-2.0.2.tar.xz
 
 WORKDIR wine-2.0.2/
