@@ -13,9 +13,7 @@ RUN apt-get install linux-image-generic  git curl build-essential autoconf libto
 
 
 
-RUN apt-get install wget -y
-RUN wget --version
+RUN apt-get install wget zip unzip -y
 ADD installgrpc.sh installgrpc.sh
 RUN chmod +x installgrpc.sh
-RUN apt-get install zip unzip -y
 RUN ./installgrpc.sh
