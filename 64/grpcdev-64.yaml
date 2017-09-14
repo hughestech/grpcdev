@@ -27,7 +27,7 @@ spec:
     dockerStrategy:
       from:
         kind: DockerImage
-        name: gliderlabs/alpine:3.6
+        name: debian:jessie
     type: Docker
   triggeredBy:
     - message: Manually triggered
