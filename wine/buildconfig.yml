@@ -1,13 +1,13 @@
 apiVersion: v1
 kind: BuildConfig
 metadata:
-  name: grpcdev-cmake
+  name: grpcdev-wine
   annotations:
-    openshift.io/build-config.name: grpcdev-cmake
+    openshift.io/build-config.name: grpcdev-wine
   labels:
-    build: grpcdev-cmake
-    buildconfig: grpcdev-cmake
-    openshift.io/build-config.name: grpcdev-cmake
+    build: grpcdev-wine
+    buildconfig: grpcdev-wine
+    openshift.io/build-config.name: grpcdev-wine
     openshift.io/build.start-policy: Serial
 spec:
   nodeSelector: null
