@@ -27,7 +27,7 @@ spec:
     dockerStrategy:
       from:
         kind: DockerImage
-        name: docker.io/Alpine:3.6
+        name: gliderlabs/alpine:3.6
     type: Docker
   triggeredBy:
     - message: Manually triggered
