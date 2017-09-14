@@ -45,5 +45,4 @@ RUN apt-get install zip unzip -y
 RUN ./installgrpc.sh
 
 #install protoc
-RUN cd /var/local/git/grpc/third_party/protobuf && \
-    make && make install && make clean
+#RUN cd /var/local/git/grpc/third_party/protobuf && \   make && make install && make clean
