@@ -18,7 +18,7 @@ spec:
       kind: DockerImage
       name: hughestech/grpc-i386-cmake
   source:
-    contextDir: "64"
+    contextDir: cmake
     git:
       ref: master
       uri: 'https://github.com/hughestech/grpcdev'
