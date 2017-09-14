@@ -16,18 +16,21 @@ spec:
       name: dockhub-hughestech
     to:
       kind: DockerImage
-      name: hughestech/grpc-64
+      name: hughestech/grpc:64bit
   postCommit: {}
   resources: {}
 
   serviceAccount: builder
   source:
-    contextDir: full
+    contextDir: 64
     git:
       ref: master
       uri: 'https://github.com/hughestech/grpcdev'
     type: Git
   strategy:
-    
+    dockerStrategy:
+      from:
+        kind: DockerImage
+    type: Docker
   triggeredBy:
     - message: Manually triggered
