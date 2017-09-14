@@ -1,15 +1,24 @@
-FROM  Alpine:3.6
+FROM  i386/ubuntu:17.04
 
 
 ENV DEBIAN_FRONTEND noninteractive
-RUN apt-get update -y
-RUN apt-get install linux-image-generic  git curl build-essential autoconf libtool  libgflags-dev libgtest-dev clang libc++-dev -y
 
+RUN apt-get update && apt-get install -y \
+  build-essential autoconf libtool \
+  git \
+  pkg-config \
+  && apt-get clean
 
+ENV GRPC_RELEASE_TAG v1.0.0
 
-RUN apt-get install wget -y
-RUN wget --version
-ADD installgrpc.sh installgrpc.sh
-RUN chmod +x installgrpc.sh
-RUN apt-get install zip unzip -y
-RUN ./installgrpc.sh
+RUN git clone -b ${GRPC_RELEASE_TAG} https://github.com/grpc/grpc /var/local/git/grpc
+
+# install grpc
+RUN cd /var/local/git/grpc && \
+    git submodule update --init && \
+    make && \
+    make install && make clean
+
+#install protoc
+RUN cd /var/local/git/grpc/third_party/protobuf && \
+    make && make install && make clean
