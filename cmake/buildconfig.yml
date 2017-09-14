@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: BuildConfig
+metadata:
+  name: grpcdev-cmake
+  annotations:
+    openshift.io/build-config.name: grpcdev-cmake
+  labels:
+    build: grpcdev-cmake
+    buildconfig: grpcdev-cmake
+    openshift.io/build-config.name: grpcdev-cmake
+    openshift.io/build.start-policy: Serial
+spec:
+  nodeSelector: null
+  output:
+    pushSecret:
+      name: dockhub-hughestech3
+    to:
+      kind: DockerImage
+      name: hughestech/grpc-i386-cmake
+  source:
+    contextDir: "64"
+    git:
+      ref: master
+      uri: 'https://github.com/hughestech/grpcdev'
+    type: Git
+  strategy:
+    dockerStrategy:
+      from:
+        kind: DockerImage
+        name: hughestech/grpc-i386-full
+    type: Docker
+  triggeredBy:
+    - message: Manually triggered
