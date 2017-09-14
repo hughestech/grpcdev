@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: BuildConfig
+metadata:
+  name: grpcdev-64
+  annotations:
+    openshift.io/build-config.name: grpcdev-64
+  labels:
+    build: grpcdev-64
+    buildconfig: grpcdev-64
+    openshift.io/build-config.name: grpcdev-64
+    openshift.io/build.start-policy: Serial
+spec:
+  nodeSelector: null
+  output:
+    pushSecret:
+      name: dockhub-hughestech
+    to:
+      kind: DockerImage
+      name: hughestech/grpc:64bit
+  source:
+    contextDir: "64"
+    git:
+      ref: master
+      uri: 'https://github.com/hughestech/grpcdev'
+    type: Git
+  strategy:
+    dockerStrategy:
+      from:
+        kind: DockerImage
+        name: gliderlabs/alpine:3.6
+    type: Docker
+  triggeredBy:
+    - message: Manually triggered

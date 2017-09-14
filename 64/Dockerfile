@@ -6,7 +6,7 @@ FROM  gliderlabs/alpine:3.6
 RUN apk add --update \
     git \
     curl \
-    build-essential \
+    alpine-sdk \
     autoconf \
     libgflags-dev \
     libgtest-dev \
