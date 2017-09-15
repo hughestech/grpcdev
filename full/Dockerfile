@@ -22,10 +22,11 @@ RUN wget http://dl.winehq.org/wine/source/2.0/wine-2.0.2.tar.xz && tar -xf wine-
 
 WORKDIR wine-2.0.2/
 
-RUN ./configure  --host=i686-linux-gnu "CFLAGS=-m32" "CXXFLAGS=-m32" "LDFLAGS=-m32" --without-x
+RUN ls
 
-  RUN make && \
-      make install && make clean
+RUN ./configure --host=i686-linux-gnu "CFLAGS=-m32" "CXXFLAGS=-m32" "LDFLAGS=-m32" --without-x
+
+RUN make && make install && make clean
 
 WORKDIR ../wine/
 
