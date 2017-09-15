@@ -18,12 +18,12 @@ RUN apt-get update && apt-get install -y \
   && apt-get clean
 
 
-  RUN wget http://dl.winehq.org/wine/source/2.0/wine-2.0.2.tar.xz && tar -xf wine-2.0.2.tar.xz
+RUN wget http://dl.winehq.org/wine/source/2.0/wine-2.0.2.tar.xz && tar -xf wine-2.0.2.tar.xz
 
-  WORKDIR wine-2.0.2/
+WORKDIR wine-2.0.2/
 
-  RUN ./configure  --host=i686-linux-gnu "CFLAGS=-m32" "CXXFLAGS=-m32" "LDFLAGS=-m32" --without-x
-./configure --host=i686-linux-gnu "CFLAGS=-m32" "CXXFLAGS=-m32" "LDFLAGS=-m32" --without-x  --without-freetype
+RUN ./configure  --host=i686-linux-gnu "CFLAGS=-m32" "CXXFLAGS=-m32" "LDFLAGS=-m32" --without-x
+
   RUN make && \
       make install && make clean
 
