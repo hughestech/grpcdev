@@ -21,7 +21,8 @@ RUN apt-get update && apt-get install -y \
 
   WORKDIR wine-2.0.2/
 
-  RUN ./configure  --without-x  --without-freetype
+  RUN ./configure  --host=i686-linux-gnu "CFLAGS=-m32" "CXXFLAGS=-m32" "LDFLAGS=-m32" --without-x
+./configure --host=i686-linux-gnu "CFLAGS=-m32" "CXXFLAGS=-m32" "LDFLAGS=-m32" --without-x  --without-freetype
   RUN make && \
       make install && make clean
 
@@ -32,7 +33,7 @@ ENV CC="/usr/local/bin/winegcc" \
       CXX="/usr/local/bin/wineg++"
 
 ENV GRPC_RELEASE_TAG v1.6.0
-ENV LDFLAGS="-L/usr/include/wine/msvcrt"
+#ENV LDFLAGS="-L/usr/include/wine/msvcrt"
 
 # Below code results in - instead, we use a script, see below
 #RUN git clone -b ${GRPC_RELEASE_TAG} https://github.com/grpc/grpc /var/local/git/grpc
