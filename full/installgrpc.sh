@@ -7,7 +7,7 @@ make install
 
 cd third_party/protobuf
 ./autogen.sh
-./configure
+./configure CC='winegcc -m32' CXX='wineg++ -m32'
 make
 make check
 make install
