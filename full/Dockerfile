@@ -27,7 +27,8 @@ WORKDIR wine-2.0.2/
 RUN ls
 
 #RUN ./configure --host=i686-linux-gnu "CFLAGS=-m32" "CXXFLAGS=-m32" "LDFLAGS=-m32" --without-x
-RUN ./configure --build=i686-linux-gnu "CFLAGS=-m32" "CXXFLAGS=-m32" "LDFLAGS=-m32" --without-x  --without-freetype
+#RUN ./configure --build=i686-linux-gnu "CFLAGS=-m32" "CXXFLAGS=-m32" "LDFLAGS=-m32" --without-x  --without-freetype
+RUN ./configure --host=i686-linux-gnu "CFLAGS=-m32" "CXXFLAGS=-m32" "LDFLAGS=-m32" --without-x  --without-freetype
 #RUN ./configure  --host=i686-linux-gnu "CFLAGS=-m32" "CXXFLAGS=-m32" "LDFLAGS=-m32"
 #To try
 #RUN ./configure  CC="gcc -m32" CXX="g++ -m32"
@@ -40,8 +41,7 @@ RUN make && make install && make clean
 WORKDIR ../wine/
 
 
-ENV CC="/usr/local/bin/winegcc" \
-      CXX="/usr/local/bin/wineg++"
+
 
 ENV GRPC_RELEASE_TAG v1.6.0
 #ENV LDFLAGS="-L/usr/include/wine/msvcrt"
@@ -56,6 +56,9 @@ ADD installgrpc.sh installgrpc.sh
 
 RUN apt-get install zip unzip -y
 RUN chmod +x installgrpc.sh && ./installgrpc.sh
+
+ENV CC="/usr/local/bin/winegcc"
+ENV CXX="/usr/local/bin/wineg++"
 
 #install protoc
 #RUN cd /var/local/git/grpc/third_party/protobuf && \   make && make install && make clean
