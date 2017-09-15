@@ -48,7 +48,7 @@ ENV GRPC_RELEASE_TAG v1.6.0
 #ENV LDFLAGS="-L/usr/include/wine/msvcrt"
 
 # Below code results in - instead, we use a script, see below
-RUN git clone -b ${GRPC_RELEASE_TAG} https://github.com/grpc/grpc /var/local/git/grpc
+RUN git clone -b ${GRPC_RELEASE_TAG} https://github.com/grpc/grpc /var/local/git
 
 # install grpc
 RUN cd /var/local/git/grpc &&  git submodule update --init &&  make && make install && make clean
