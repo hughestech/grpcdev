@@ -23,7 +23,7 @@ RUN apt-get update && apt-get install -y \
 
 RUN wget http://dl.winehq.org/wine/source/2.0/wine-2.0.2.tar.xz && tar -xf wine-2.0.2.tar.xz
 
-#WORKDIR wine-2.0.2/
+WORKDIR wine-2.0.2/
 
 
 
@@ -40,14 +40,6 @@ RUN ./configure --host=i686-linux-gnu "CFLAGS=-m32" "CXXFLAGS=-m32" "LDFLAGS=-m3
 RUN make && make install && make clean
 
 #WORKDIR ../wine/
-
-
-
-
-ENV GRPC_RELEASE_TAG v1.6.0
-
-
-
 
 ENV GRPC_RELEASE_TAG v1.6.0
 
