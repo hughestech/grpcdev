@@ -5,13 +5,13 @@ git submodule update --init
 make
 make install
 
-cd third_party/protobuf
+#cd third_party/protobuf
 
-./autogen.sh
-./configure
-make
-make check
-make install
+#./autogen.sh
+#./configure
+#make
+#make check
+#make install
 
 #./configure CC='winegcc -m32' CXX='wineg++ -m32'
 
