@@ -6,6 +6,7 @@ make
 make install
 
 cd third_party/protobuf
+ls
 ./autogen.sh
 ./configure
 make
