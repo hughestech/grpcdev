@@ -13,6 +13,9 @@ cd $gitdir
 echo "deleting objs because it doesnt compile with wine"
 rm -rf $gitdir/objs
 
+echo "deleting objs because it doesnt compile with wine"
+rm -rf $gitdir/cares
+
 echo "deleting protobuf - we want version $protocVersion"
 rm -rf $gitdir/protobuf
 
