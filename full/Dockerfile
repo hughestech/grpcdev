@@ -61,7 +61,7 @@ RUN cd /var/local/git/grpc &&  git submodule update --init &&  make && make inst
 
 
 #install protoc
-RUN cd /var/local/git/grpc/third_party/protobuf && \   make && make install && make clean
+RUN cd /var/local/git/grpc/third_party/protobuf &&  make && make install && make clean
 
 ENV CC="/usr/local/bin/winegcc"
 ENV CXX="/usr/local/bin/wineg++"
