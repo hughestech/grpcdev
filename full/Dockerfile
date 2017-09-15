@@ -24,7 +24,12 @@ WORKDIR wine-2.0.2/
 
 RUN ls
 
-RUN ./configure --host=i686-linux-gnu "CFLAGS=-m32" "CXXFLAGS=-m32" "LDFLAGS=-m32" --without-x
+#RUN ./configure --host=i686-linux-gnu "CFLAGS=-m32" "CXXFLAGS=-m32" "LDFLAGS=-m32" --without-x
+RUN ./configure  --host=i686-linux-gnu "CFLAGS=-m32" "CXXFLAGS=-m32" "LDFLAGS=-m32"
+
+
+#RUN RUN ./configure  --without-x  --without-freetype
+
 
 RUN make && make install && make clean
 
