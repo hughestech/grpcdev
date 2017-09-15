@@ -1,12 +1,12 @@
 #!/bin/bash -x
 
 protocVersion=3.0.0
-gitdir=/var/local/git/grpc
+#gitdir=/var/local/git
 
 echo "cloning grpc"
-git clone -b ${GRPC_RELEASE_TAG} --single-branch https://github.com/grpc/grpc /var/local/git/grpc
+git clone -b ${GRPC_RELEASE_TAG} --single-branch https://github.com/grpc/grpc $gitdir/grpc
 
-echo "cd to $gitdir"
+echo "cd to $gitdir/grpc"
 cd $gitdir
 #not sure what objs is - but cant compile it!
 
@@ -22,7 +22,7 @@ cd $gitdir
 
 echo "get protobuf version $protocVersion"
 wget https://github.com/google/protobuf/archive/v$protocVersion.zip
-unzip v$protocVersion.zip -d $gitdir/protobuf
+unzip v$protocVersion.zip -d $gitdir/grpc/protobuf
 
 
 git submodule update --init
@@ -30,7 +30,7 @@ make
 make install
 
 echo "Compile protoc"
-cd $gitdir/protobuf/protobuf-$protocVersion
+cd $gitdir/grpc/protobuf/protobuf-$protocVersion
 ./autogen.sh
 ./configure
 make
