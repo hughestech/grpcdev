@@ -26,6 +26,7 @@ cd $gitdir/grpc
 
 ls
 git submodule update --init
+make run_dep_checks
 make
 make install
 

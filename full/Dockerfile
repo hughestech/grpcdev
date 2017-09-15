@@ -17,6 +17,7 @@ RUN apt-get update && apt-get install -y \
   cmake \
   zlib1g-dev \
   libc-ares-dev \
+  libssl-dev \
   && apt-get clean
 
 
