@@ -24,7 +24,7 @@ cd $gitdir/grpc
 #wget https://github.com/google/protobuf/archive/v$protocVersion.zip
 #unzip v$protocVersion.zip -d $gitdir/grpc/protobuf
 
-pwd
+ls
 git submodule update --init
 make
 make install
