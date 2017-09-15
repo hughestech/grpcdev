@@ -1,12 +1,12 @@
 #!/bin/bash -x
 git clone -b ${GRPC_RELEASE_TAG} --single-branch https://github.com/grpc/grpc /var/local/git/grpc
-cd grpc
+cd /var/local/git/grpc
 git submodule update --init
 make
 make install
 
 cd third_party/protobuf
-ls
+
 ./autogen.sh
 ./configure
 make
