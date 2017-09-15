@@ -20,19 +20,19 @@ cd $gitdir
 #rm -rf $gitdir/protobuf
 
 
-echo "get protobuf version $protocVersion"
-wget https://github.com/google/protobuf/archive/v$protocVersion.zip
-unzip v$protocVersion.zip -d $gitdir/grpc/protobuf
+#echo "get protobuf version $protocVersion"
+#wget https://github.com/google/protobuf/archive/v$protocVersion.zip
+#unzip v$protocVersion.zip -d $gitdir/grpc/protobuf
 
 
 git submodule update --init
 make
 make install
 
-echo "Compile protoc"
-cd $gitdir/grpc/protobuf/protobuf-$protocVersion
-./autogen.sh
-./configure
+#echo "Compile protoc"
+#cd $gitdir/grpc/protobuf/protobuf-$protocVersion
+#./autogen.sh
+#./configure
 make
 make check
 make install
