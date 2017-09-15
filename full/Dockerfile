@@ -42,7 +42,7 @@ RUN make && make install && make clean
 #WORKDIR ../wine/
 
 ENV GRPC_RELEASE_TAG v1.6.0
-
+RUN pwd
 RUN git clone -b ${GRPC_RELEASE_TAG} https://github.com/grpc/grpc /var/local/git/grpc
 
 # install grpc
