@@ -15,6 +15,8 @@ RUN apt-get update && apt-get install -y \
   xz-utils \
   wget \
   cmake \
+  zlib1g-dev \
+  libc-ares-dev \
   && apt-get clean
 
 
