@@ -48,18 +48,20 @@ ENV GRPC_RELEASE_TAG v1.6.0
 #ENV LDFLAGS="-L/usr/include/wine/msvcrt"
 
 # Below code results in - instead, we use a script, see below
-#RUN git clone -b ${GRPC_RELEASE_TAG} https://github.com/grpc/grpc /var/local/git/grpc
+RUN git clone -b ${GRPC_RELEASE_TAG} https://github.com/grpc/grpc /var/local/git/grpc
 
 # install grpc
-#RUN cd /var/local/git/grpc &&  git submodule update --init &&  make && make install && make clean
+RUN cd /var/local/git/grpc &&  git submodule update --init &&  make && make install && make clean
 
-ADD installgrpc.sh installgrpc.sh
+#ADD installgrpc.sh installgrpc.sh
 
-RUN apt-get install zip unzip -y
-RUN chmod +x installgrpc.sh && ./installgrpc.sh
+#RUN apt-get install zip unzip -y
+#RUN chmod +x installgrpc.sh && ./installgrpc.sh
+
+
+
+#install protoc
+RUN cd /var/local/git/grpc/third_party/protobuf && \   make && make install && make clean
 
 ENV CC="/usr/local/bin/winegcc"
 ENV CXX="/usr/local/bin/wineg++"
-
-#install protoc
-#RUN cd /var/local/git/grpc/third_party/protobuf && \   make && make install && make clean
