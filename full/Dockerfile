@@ -23,9 +23,9 @@ RUN apt-get update && apt-get install -y \
 
 RUN wget http://dl.winehq.org/wine/source/2.0/wine-2.0.2.tar.xz && tar -xf wine-2.0.2.tar.xz
 
-WORKDIR wine-2.0.2/
+#WORKDIR wine-2.0.2/
 
-RUN ls
+
 
 #RUN ./configure --host=i686-linux-gnu "CFLAGS=-m32" "CXXFLAGS=-m32" "LDFLAGS=-m32" --without-x
 #RUN ./configure --build=i686-linux-gnu "CFLAGS=-m32" "CXXFLAGS=-m32" "LDFLAGS=-m32" --without-x  --without-freetype
@@ -49,16 +49,18 @@ ENV GRPC_RELEASE_TAG v1.6.0
 
 
 
-RUN git clone -b ${GRPC_RELEASE_TAG} https://github.com/grpc/grpc ~/var/local/git/grpc
+ENV GRPC_RELEASE_TAG v1.6.0
+
+RUN git clone -b ${GRPC_RELEASE_TAG} https://github.com/grpc/grpc /var/local/git/grpc
 
 # install grpc
-RUN cd ~/var/local/git/grpc && \
+RUN cd /var/local/git/grpc && \
     git submodule update --init && \
     make && \
     make install && make clean
 
 #install protoc
-RUN cd ~/var/local/git/grpc/third_party/protobuf && \
+RUN cd /var/local/git/grpc/third_party/protobuf && \
     make && make install && make clean
 
 
