@@ -1,11 +1,28 @@
 #!/bin/bash -x
+
+protocVersion=3.0.0
+
+
 git clone -b ${GRPC_RELEASE_TAG} --single-branch https://github.com/grpc/grpc /var/local/git/grpc
 cd /var/local/git/grpc
+#not sure what objs is - but cant compile it!
+rm -rf /var/local/git/grpc/objs
 git submodule update --init
 make
 make install
 
-#cd third_party/protobuf
+
+cd third_party/protobuf
+
+wget https://github.com/google/protobuf/archive/v$protocVersion.zip
+unzip v$protocVersion.zip -d protoc3
+
+cd protoc3
+./autogen.sh
+./configure
+make
+make check
+make install
 
 #./autogen.sh
 #./configure
