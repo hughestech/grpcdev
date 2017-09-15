@@ -7,7 +7,7 @@ echo "cloning grpc"
 git clone -b ${GRPC_RELEASE_TAG} --single-branch https://github.com/grpc/grpc $gitdir/grpc
 
 echo "cd to $gitdir/grpc"
-cd $gitdir
+cd $gitdir/grpc
 #not sure what objs is - but cant compile it!
 
 #echo "deleting objs because it doesnt compile with wine"
