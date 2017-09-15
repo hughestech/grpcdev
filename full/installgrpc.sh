@@ -10,14 +10,14 @@ echo "cd to $gitdir"
 cd $gitdir
 #not sure what objs is - but cant compile it!
 
-echo "deleting objs because it doesnt compile with wine"
-rm -rf $gitdir/objs
+#echo "deleting objs because it doesnt compile with wine"
+#rm -rf $gitdir/objs
 
-echo "deleting objs because it doesnt compile with wine"
-rm -rf $gitdir/cares
+#echo "deleting objs because it doesnt compile with wine"
+#rm -rf $gitdir/cares
 
-echo "deleting protobuf - we want version $protocVersion"
-rm -rf $gitdir/protobuf
+#echo "deleting protobuf - we want version $protocVersion"
+#rm -rf $gitdir/protobuf
 
 
 echo "get protobuf version $protocVersion"
@@ -27,6 +27,14 @@ unzip v$protocVersion.zip -d $gitdir/protobuf
 
 git submodule update --init
 make
+make install
+
+echo "Compile protoc"
+cd $gitdir/protobuf/protobuf-$protocVersion
+./autogen.sh
+./configure
+make
+make check
 make install
 
 
