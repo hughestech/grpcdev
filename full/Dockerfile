@@ -2,7 +2,7 @@ FROM  i386/ubuntu:17.04
 
 
 ENV DEBIAN_FRONTEND noninteractive
-ENV GIT_DIR="/var/local/git"
+
 
 RUN apt-get update && apt-get install -y \
   build-essential autoconf libtool \
